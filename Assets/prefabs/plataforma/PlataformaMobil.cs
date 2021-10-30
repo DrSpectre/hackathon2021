@@ -32,7 +32,7 @@ public class PlataformaMobil: MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         if(other.gameObject.CompareTag("Jugador")) {
-            jugador_atrapado.Move(cuerpo_muerto.velocity * Time.deltaTime);
+            jugador_atrapado.Move(cuerpo_muerto.velocity * Time.deltaTime / 2);
         }
     }
 
