@@ -14,9 +14,14 @@ public class JugadorEstado: MonoBehaviour{
     void Start(){}
 
     void Update(){
-        if(Input.GetButtonDown("Fire3") && salud_mental >= cantidad_necesaria_ayuda) {
-            Debug.Log("Shift o Ctr");
+        if(Input.GetButtonDown("Fire3")) {
+            mostrar_amigos();
+        }
+    }
 
+
+    public void mostrar_amigos(){
+        if(salud_mental >= cantidad_necesaria_ayuda){
             salud_mental -= cantidad_necesaria_ayuda;
             plataformas_cercanas.ForEach(
                 delegate (GameObject plata) { 

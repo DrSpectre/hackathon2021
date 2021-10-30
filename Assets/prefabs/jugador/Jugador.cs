@@ -6,13 +6,17 @@ public class Jugador: MonoBehaviour{
     public float gravedad = 9.8F;
     public float velocidad = 0.8F;
     public float salto_fuerza = 10F;
+    
+    private CharacterController controlador;
 
     private float direccion;
     private float caida_fuerza;
 
     private bool pre_fase;
 
-    private CharacterController controlador;
+    //COntroador de joystick
+    //private float movimineto_horizontal = 0F;
+    public Joystick palanquita;
 
     void Start(){
         controlador = gameObject.GetComponent<CharacterController>();
@@ -27,20 +31,22 @@ public class Jugador: MonoBehaviour{
     }
 
     void FixedUpdate(){
-        direccion = Input.GetAxis("Horizontal");
+        //direccion = Input.GetAxis("Horizontal");
+
+        direccion = palanquita.Horizontal;
 
         moverse();
     }
 
     void moverse(){
         controlador.Move(new Vector3(direccion * velocidad, calcular_fuerza_gravedad(), 0));
-        Debug.Log("--> " + caida_fuerza);
-        Debug.Log("--> " + pre_fase);
-
     }
 
-    void saltar(){
-        Debug.Log("--> <--");
+    public void saltar(){
+        // Salida de emergencia para usarse de manera externa
+        if(!controlador.isGrounded)
+            return;
+
         pre_fase = true;
         caida_fuerza = 2F;
         moverse();
