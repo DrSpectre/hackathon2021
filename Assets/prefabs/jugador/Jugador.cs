@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Jugador: MonoBehaviour{
+    public bool en_debuugeo;
+
     public float gravedad = 9.8F;
     public float velocidad = 0.8F;
     public float salto_fuerza = 10F;
@@ -31,15 +33,18 @@ public class Jugador: MonoBehaviour{
     }
 
     void FixedUpdate(){
-        //direccion = Input.GetAxis("Horizontal");
+        if(en_debuugeo)
+            direccion = Input.GetAxis("Horizontal");
 
-        direccion = palanquita.Horizontal;
+        else
+            direccion = palanquita.Horizontal;
 
         moverse();
     }
 
     void moverse(){
         controlador.Move(new Vector3(direccion * velocidad, calcular_fuerza_gravedad(), 0));
+        crear_raycast();
     }
 
     public void saltar(){
@@ -79,5 +84,40 @@ public class Jugador: MonoBehaviour{
         }
 
         return caida_fuerza;
+    }
+
+    void crear_raycast(){ 
+        // -> Validacion de raycast
+        RaycastHit rayito_de_luz;
+
+        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 
+                out rayito_de_luz, 1.65F)){
+            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * rayito_de_luz.distance, Color.cyan);
+            //Debug.Log("Ha gopeadfo");
+
+            //Debug.Log(rayito_de_luz.collider.gameObject.name);
+
+            transform.parent = rayito_de_luz.collider.gameObject.transform;
+        }
+        else{
+            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1.65F, Color.green);
+            //Debug.Log("no ha gopeadfo");
+
+            transform.parent = null;
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision choquue) {
+        Debug.Log("Accede a coisoin");
+        if(choquue.gameObject.GetComponent<PlataformaMobil>() != null) {
+            transform.parent = choquue.gameObject.transform;
+        }
+    }
+
+    private void OnCollisionExit(Collision choque) {
+        if(choque.gameObject.GetComponent<PlataformaMobil>() != null) {
+            transform.parent = null;
+        }
     }
 }

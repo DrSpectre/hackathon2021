@@ -132,6 +132,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7947727135670124683, guid: 6592af16495225245b490d5d806e1057,
+        type: 3}
+      propertyPath: palanquita
+      value: 
+      objectReference: {fileID: 14062635}
     - target: {fileID: 7947727135670124684, guid: 6592af16495225245b490d5d806e1057,
         type: 3}
       propertyPath: m_RootOrder
@@ -140,12 +145,12 @@ PrefabInstance:
     - target: {fileID: 7947727135670124684, guid: 6592af16495225245b490d5d806e1057,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.06
+      value: -8.54
       objectReference: {fileID: 0}
     - target: {fileID: 7947727135670124684, guid: 6592af16495225245b490d5d806e1057,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.36
+      value: 24.3
       objectReference: {fileID: 0}
     - target: {fileID: 7947727135670124684, guid: 6592af16495225245b490d5d806e1057,
         type: 3}
@@ -194,6 +199,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6592af16495225245b490d5d806e1057, type: 3}
+--- !u!114 &14062635 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 759294806249626324, guid: af6de284cbf16424783848b06975ecf1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2463264439360742853}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &263393964 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7947727135670124683, guid: 6592af16495225245b490d5d806e1057,
@@ -807,6 +824,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 847754830621282962, guid: 2e399c46fb18c8b4f874c30a9ba4a6dd,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1288568499950818259, guid: 2e399c46fb18c8b4f874c30a9ba4a6dd,
         type: 3}
       propertyPath: m_RootOrder
@@ -866,6 +888,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: plataforma_mobil
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834158714494530579, guid: 2e399c46fb18c8b4f874c30a9ba4a6dd,
+        type: 3}
+      propertyPath: veocidad
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e399c46fb18c8b4f874c30a9ba4a6dd, type: 3}

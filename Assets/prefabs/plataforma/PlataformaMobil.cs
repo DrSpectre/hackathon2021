@@ -3,30 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlataformaMobil: MonoBehaviour {
-    public GameObject limite_izq;
-    public GameObject limite_der;
+    public float tiempo_viaje;
+    
+    public Transform limite_izq;
+    public Transform limite_der;
 
-    private bool movimiento_a_izq;
+    private Vector3 posicion_actual;
+    private Rigidbody cuerpo_muerto;
+    
+    private CharacterController jugador_atrapado;
 
-    public float veocidad = 5F;
 
-    void Start(){}
-
-    void Update(){
-        mover_y_verificar();
+    void Start(){
+        cuerpo_muerto = GetComponent<Rigidbody>();    
     }
 
-    void mover_y_verificar(){ 
-        Vector3 mov = transform.position;
 
-        if(transform.position.x > limite_der.transform.position.x){ 
-            movimiento_a_izq = true;
+    private void FixedUpdate() {
+        posicion_actual = Vector3.Lerp(limite_izq.position, limite_der.position, Mathf.Cos(Time.time / tiempo_viaje * Mathf.PI * 2) * -.5F +.5F);
+        cuerpo_muerto.MovePosition(posicion_actual);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.CompareTag("Jugador")) {
+            jugador_atrapado = other.gameObject.GetComponent<CharacterController>();
         }
+    }
 
-        if(transform.position.x < limite_izq.transform.position.x){
-            movimiento_a_izq = false;
+    private void OnTriggerStay(Collider other) {
+        if(other.gameObject.CompareTag("Jugador")) {
+            jugador_atrapado.Move(cuerpo_muerto.velocity * Time.deltaTime);
         }
+    }
 
-        transform.position += Vector3.right * veocidad * ((movimiento_a_izq)  ? -1: 1);
+    private void OnTriggerExit(Collider other) {
+        if(other.gameObject.CompareTag("Jugador")) {
+            jugador_atrapado = null;
+        }
     }
 }
+
+

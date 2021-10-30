@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: limite_izq
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -75,7 +75,7 @@ GameObject:
   m_Layer: 0
   m_Name: limite_der
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -104,9 +104,9 @@ GameObject:
   - component: {fileID: 8834158714494530600}
   - component: {fileID: 8834158714494530601}
   - component: {fileID: 8834158714494530606}
-  - component: {fileID: 8834158714494530579}
   - component: {fileID: 8834158714494530607}
   - component: {fileID: 8834158714494530602}
+  - component: {fileID: 8834158714494530579}
   - component: {fileID: 8834158714494530603}
   - component: {fileID: 847754830621282962}
   m_Layer: 0
@@ -180,21 +180,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8834158714494530579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8834158714494530604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2664c8a17c7c83443b104282d94421bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  limite_izq: {fileID: 1288568499676844500}
-  limite_der: {fileID: 1288568500426576886}
-  veocidad: 0.05
 --- !u!65 &8834158714494530607
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -222,6 +207,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camarada: {fileID: 1730209788096250174}
   es_una_ilusion: 0
+--- !u!114 &8834158714494530579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834158714494530604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2664c8a17c7c83443b104282d94421bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limite_izq: {fileID: 1288568499676844507}
+  limite_der: {fileID: 1288568500426576885}
+  veocidad: 0.05
+  tiempo_viaje: 3
 --- !u!111 &8834158714494530603
 Animation:
   m_ObjectHideFlags: 0
