@@ -40,12 +40,13 @@ public class Jugador: MonoBehaviour{
     }
 
     float calcular_fuerza_gravedad(){
-        if((controlador.isGrounded || caida_fuerza < -gravedad) && caida_fuerza < salto_fuerza - 15F) {
+        //if((controlador.isGrounded || caida_fuerza < -gravedad) && caida_fuerza < salto_fuerza - 15F) {
+        if((controlador.isGrounded || caida_fuerza < -gravedad * 4) && caida_fuerza < salto_fuerza - 2F) {
             if(controlador.isGrounded) 
                 caida_fuerza = 0;
 
-            else if(caida_fuerza < -gravedad*4)
-                caida_fuerza = -gravedad*4;
+            else if(caida_fuerza < -gravedad * 4)
+                caida_fuerza = -gravedad * 4;
 
             return caida_fuerza;
         }

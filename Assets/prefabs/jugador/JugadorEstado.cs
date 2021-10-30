@@ -7,16 +7,16 @@ public class JugadorEstado: MonoBehaviour{
 
     // private float indicador_esquizofrenia = 20F;
 
-    private float salud_mental = 0F;
+    private float salud_mental = 50F;
 
-    private List<GameObject> plataformas_cercanas;
+    public List<GameObject> plataformas_cercanas;
 
-    void Start(){
-        
-    }
+    void Start(){}
 
     void Update(){
-        if(Input.GetButtonDown("Action") && salud_mental > cantidad_necesaria_ayuda) {
+        if(Input.GetButtonDown("Fire3") && salud_mental >= cantidad_necesaria_ayuda) {
+            Debug.Log("Shift o Ctr");
+
             salud_mental -= cantidad_necesaria_ayuda;
             plataformas_cercanas.ForEach(
                 delegate (GameObject plata) { 

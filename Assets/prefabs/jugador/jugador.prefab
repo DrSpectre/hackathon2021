@@ -108,6 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159b9708cee336d4bb07c5ff47612f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reportar_a: {fileID: 6289445671643834093}
+  nombre_plataforma: Plataforma
 --- !u!1 &7947727135534728692
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7947727135670124684}
   - component: {fileID: 7947727135670124683}
+  - component: {fileID: 6289445671643834093}
   - component: {fileID: 7947727135670124685}
   m_Layer: 0
   m_Name: jugador
@@ -189,6 +192,20 @@ MonoBehaviour:
   gravedad: 9.8
   velocidad: 0.5
   salto_fuerza: 2
+--- !u!114 &6289445671643834093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947727135670124686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77c6a22c9b96f14686cad7c58425ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cantidad_necesaria_ayuda: 5
+  plataformas_cercanas: []
 --- !u!143 &7947727135670124685
 CharacterController:
   m_ObjectHideFlags: 0

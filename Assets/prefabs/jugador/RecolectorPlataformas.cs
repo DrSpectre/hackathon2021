@@ -5,7 +5,7 @@ using UnityEngine;
 public class RecolectorPlataformas: MonoBehaviour{
     public JugadorEstado reportar_a;
     
-    public string nombre_plataforma = "Plataforma"; 
+    public string nombre_plataforma = "Plataforma";
 
     void Start(){ }
 
@@ -19,7 +19,7 @@ public class RecolectorPlataformas: MonoBehaviour{
 
     private void OnTriggerExit(Collider otro) {
         if(otro.gameObject.CompareTag(nombre_plataforma)){
-            reportar_a.agregar_plataforma(otro.gameObject);
+            reportar_a.quitar_plataforma(otro.gameObject);
         }
     }
 }
