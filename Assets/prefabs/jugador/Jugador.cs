@@ -2,15 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EstadosPersonaje {
-    saltando,
-    caminando,
-    quieto,
-    en_aire
-}
-
 public class Jugador: MonoBehaviour{
-
     public float gravedad = 9.8F;
     public float velocidad = 0.8F;
     public float salto_fuerza = 10F;
