@@ -8,6 +8,9 @@ public class Jugador: MonoBehaviour{
     public float gravedad = 9.8F;
     public float velocidad = 0.8F;
     public float salto_fuerza = 10F;
+
+    public Animator anima;
+    public GameObject titere;
     
     private CharacterController controlador;
 
@@ -24,6 +27,8 @@ public class Jugador: MonoBehaviour{
         controlador = gameObject.GetComponent<CharacterController>();
 
         caida_fuerza = -gravedad;
+
+        // anima = GetComponent<Animator>();
     }
     
     void Update() {
@@ -43,6 +48,16 @@ public class Jugador: MonoBehaviour{
     }
 
     void moverse(){
+        //Controa los estados de animacion ligeramente
+        anima.SetBool("caminando", direccion != 0);
+        anima.SetBool("saltando", controlador.isGrounded);
+        anima.SetBool("quieto", direccion == 0);
+
+        if(direccion != 0){
+            // Falta impementar la rotacion del personaje
+            //titere.transform.LookAt(transform.position + Vector3.down * direccion);
+        }
+
         controlador.Move(new Vector3(direccion * velocidad, calcular_fuerza_gravedad(), 0));
         crear_raycast();
     }
@@ -51,6 +66,8 @@ public class Jugador: MonoBehaviour{
         // Salida de emergencia para usarse de manera externa
         if(!controlador.isGrounded)
             return;
+
+        anima.SetBool("saltando", true);
 
         pre_fase = true;
         caida_fuerza = 2F;
@@ -92,17 +109,9 @@ public class Jugador: MonoBehaviour{
 
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 
                 out rayito_de_luz, 1.65F)){
-            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * rayito_de_luz.distance, Color.cyan);
-            //Debug.Log("Ha gopeadfo");
-
-            //Debug.Log(rayito_de_luz.collider.gameObject.name);
-
             transform.parent = rayito_de_luz.collider.gameObject.transform;
         }
         else{
-            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1.65F, Color.green);
-            //Debug.Log("no ha gopeadfo");
-
             transform.parent = null;
         }
 
