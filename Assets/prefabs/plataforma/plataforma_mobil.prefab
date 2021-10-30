@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 8834158714494530579}
   - component: {fileID: 8834158714494530603}
   - component: {fileID: 847754830621282962}
+  - component: {fileID: 7928083333003706071}
   m_Layer: 0
   m_Name: plataforma
   m_TagString: Plataforma
@@ -219,10 +220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2664c8a17c7c83443b104282d94421bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tiempo_viaje: 3
   limite_izq: {fileID: 1288568499676844507}
   limite_der: {fileID: 1288568500426576885}
-  veocidad: 0.05
-  tiempo_viaje: 3
 --- !u!111 &8834158714494530603
 Animation:
   m_ObjectHideFlags: 0
@@ -253,8 +253,21 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 124
   m_CollisionDetection: 0
+--- !u!65 &7928083333003706071
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834158714494530604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_Center: {x: -0.00000011920929, y: 0.91, z: 0}
 --- !u!1001 &1288568498945051532
 PrefabInstance:
   m_ObjectHideFlags: 0
