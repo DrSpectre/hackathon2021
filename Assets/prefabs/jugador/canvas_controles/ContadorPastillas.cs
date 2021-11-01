@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ContadorPastillas: MonoBehaviour{
     public Image[] iconos;
+    public bool debug;
 
     private int indice;
 
@@ -13,7 +14,7 @@ public class ContadorPastillas: MonoBehaviour{
     }
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.R)){
+        if(debug && Input.GetKeyDown(KeyCode.R)){
             retirar_medicamento();    
         }
     }

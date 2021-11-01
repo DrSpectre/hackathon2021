@@ -5,6 +5,7 @@ using UnityEngine;
 public class JugadorEstado: MonoBehaviour{
     public float cantidad_necesaria_ayuda = 5F;
 
+    public ContadorPastillas  cont_pastillas;
     // private float indicador_esquizofrenia = 20F;
 
     private float salud_mental = 50F;
@@ -36,6 +37,11 @@ public class JugadorEstado: MonoBehaviour{
     }
 
     public void agregar_salud_mental(float cantidad) {
+        if(cantidad > 0){
+            if(cont_pastillas != null) {
+                cont_pastillas.retirar_medicamento();
+            }
+        }
         salud_mental += cantidad;
     }
 
