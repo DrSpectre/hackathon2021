@@ -7,13 +7,20 @@ public class PastillasBase: MonoBehaviour{
 
     public float cantidad_personalizada = 5;
 
+    public GameObject[] tipo_pastillas;
+
     void Start(){
+        int largo_elementos = tipo_pastillas.Length;
         
+        for(int indice = 0; indice < largo_elementos; indice++) {
+            tipo_pastillas[indice].SetActive(false);
+        }
+
+        tipo_pastillas[Random.Range(0, largo_elementos)].SetActive(true);
+
     }
 
-    void Update(){
-        
-    }
+    void Update(){}
 
 
     private void OnTriggerEnter(Collider otro) {
