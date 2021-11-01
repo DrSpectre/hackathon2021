@@ -1,0 +1,19 @@
+{
+    "dialogos":[
+        {
+        "ID": 1,
+        "dialogo": "Boleto",
+        "siguiente_id": 0
+        },
+        {
+        "ID": 2,
+        "dialogo":"Canasta",
+        "siguiente_id": 0
+        },
+        {
+        "ID": 3,
+        "dialogo": "Identificador",
+        "siguiente_id": 0   
+        }
+    ]
+}
