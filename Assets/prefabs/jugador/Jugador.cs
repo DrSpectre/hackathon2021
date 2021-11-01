@@ -56,6 +56,12 @@ public class Jugador: MonoBehaviour{
         if(direccion != 0){
             // Falta impementar la rotacion del personaje
             //titere.transform.LookAt(transform.position + Vector3.down * direccion);
+            if(direccion > 0)
+                //titere.transform.Rotate(0, 90, 0);
+                titere.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+            if(direccion < 0)
+                //titere.transform.Rotate(0, -90, 0);
+                titere.transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
         }
 
         controlador.Move(new Vector3(direccion * velocidad, calcular_fuerza_gravedad(), 0));
