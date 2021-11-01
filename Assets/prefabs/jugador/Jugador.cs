@@ -9,6 +9,8 @@ public class Jugador: MonoBehaviour{
     public float velocidad = 0.8F;
     public float salto_fuerza = 10F;
 
+    public string plataforma_final_tag = "PlataformaF";
+
     public Animator anima;
     public GameObject titere;
     
@@ -116,6 +118,10 @@ public class Jugador: MonoBehaviour{
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 
                 out rayito_de_luz, 1.65F)){
             transform.parent = rayito_de_luz.collider.gameObject.transform;
+
+            if(rayito_de_luz.collider.gameObject.CompareTag(plataforma_final_tag)){
+                rayito_de_luz.collider.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+            }
         }
         else{
             transform.parent = null;
